@@ -4,7 +4,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import ProductDetailsHeader from './appComponents/ProductDetailsHeader';
 import AddToCartSection from './appComponents/AddToCartSection';
 import AddToCartModal from './appComponents/AddToCartModal';
-import { useCart } from '../context/CartContext'; // ✅ استيراد الكارت كونتكست
+import { useCart } from '../context/CartContext';
 
 export default function ProductDetailsScreen() {
 const { id, name, description, price, images, tag, rating, calories } = useLocalSearchParams();
@@ -21,7 +21,7 @@ const { id, name, description, price, images, tag, rating, calories } = useLocal
 
   const screenKey = useMemo(() => `${name}-${Date.now()}`, [name]);
 
-  const { addToCart } = useCart(); // ✅ استدعاء addToCart من الكارت كونتكست
+  const { addToCart } = useCart();
 
   // ✅ دالة إضافة المنتج للسلة + فتح المودال
   const handleAddToCart = () => {
@@ -48,15 +48,15 @@ const { id, name, description, price, images, tag, rating, calories } = useLocal
         />
         {/* ✅ سكشن الإضافة لعربة التسوق */}
         <AddToCartSection
-          id={id as string} // ✅ تبعت الـ id
+          id={id as string} 
           name={name as string}
           description={description as string}
           price={price as string}
-          images={parsedImages} // ✅ تبعت الـ images اللي عملتلهم parse فوق
+          images={parsedImages} 
           tag={tag as string}
-          rating={parseFloat(rating as string)} // ✅ حولتهم أرقام صح
-          calories={parseFloat(calories as string)} // ✅ برضه
-          onAddToCart={handleAddToCart} // ✅ خلي دالة الإضافة اللي ظابطة
+          rating={parseFloat(rating as string)}
+          calories={parseFloat(calories as string)} 
+          onAddToCart={handleAddToCart} 
           resetSignal={name + '-reset'}
         />
       </ScrollView>

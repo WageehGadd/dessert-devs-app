@@ -7,7 +7,7 @@ export default function IndexScreen() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace('/(tabs)/Home'); // أو Products أو أي صفحة البداية
+      router.replace('/(tabs)/Home');
     }, 1000);
 
     return () => clearTimeout(timer);
